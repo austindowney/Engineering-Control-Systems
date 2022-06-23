@@ -1,0 +1,214 @@
+\documentclass[12pt,letter]{article}
+\usepackage{mathptmx} % added for time new roman font
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage[final]{pdfpages}
+\usepackage{caption}	% added for \captionof
+\usepackage[textsize=tiny]{todonotes}
+
+% defines all example enviorment
+\usepackage[framemethod=tikz]{mdframed} % added for the box around examples
+\newtheorem{ex}{Example}
+\numberwithin{ex}{section} % allows for the use of example numbers that lign up with the section numbers
+\newenvironment{example}{\begin{mdframed}[middlelinewidth=0.5mm]\begin{ex}\normalfont}{\end{ex}\end{mdframed}}
+
+% defines all review enviorment
+\usepackage[framemethod=tikz]{mdframed} % added for the box around examples
+\newtheorem{re}{Review}
+\numberwithin{re}{section} % allows for the use of example numbers that lign up with the section numbers
+\newenvironment{review}{\begin{mdframed}[middlelinewidth=2mm,roundcorner=20pt]\begin{re}\normalfont}{\end{re}\end{mdframed}}
+
+% defines the quotation enviorment 
+\usepackage{xcolor}
+\newcommand{\quotebox}[2]{\begin{center}\fcolorbox{white}{blue!15!gray!15}{\begin{minipage}{0.9\linewidth}\vspace{10pt}\center\begin{minipage}{0.8\linewidth}{\space\Huge``}{#1}{\Huge''}{\break\null\hfill} {\small #2}  \end{minipage}\medbreak\end{minipage}}\end{center}}
+
+% defines the definition enviorment 
+\newcommand{\definitionbox}[2]{\begin{center}\fcolorbox{white}{blue!15!gray!15}{\begin{minipage}{0.9\linewidth}\vspace{10pt}\center\begin{minipage}{0.8\linewidth} {{\textbf{Definition} - }{#1}: {#2}}\end{minipage}\medbreak\end{minipage}}\end{center}}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+%\usepackage{parskip} % remove all the paragraph indents
+\usepackage{xfrac}
+\usepackage{upgreek}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{textcomp} 
+\usepackage{multicol} 
+\usepackage{enumitem}		% added for spacing in itemize lists
+\usepackage[numbered,framed]{matlab-prettifier}		% added for matlab code
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
+
+\usepackage{color} % color added for editing
+\newcommand{\bl}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\gr}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\rd}[1]{\textcolor[rgb]{0.75,0.00,0.00}{#1}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{Page \thepage} 
+%\fancyfoot[RE,LO]{Lecture notes developed for EMCH 516 at the University\\ of South Carolina. Wider distribution is not allowed. }
+
+%%%%%%%		define the symbols for positive directions		%%%%%%
+\makeatletter													%%	
+																%%					
+\newcommand*\curveplus{% positive counterclockwise				%%
+  \mathbin{\rotatebox[origin=c]{90}{$\m@th\curvearrowleft$}+}}	%%
+																%%
+\newcommand*\rightplus{% positive right							%%
+  \mathpalette\@rightplus\relax}								%%
+\newcommand*\@rightplus[1]{%									%%
+  \mathbin{\vcenter{\hbox{$\m@th\overset{#1+}{\to}$}}}}			%%
+																%%	
+\newcommand*\upplus{% positive up								%%
+  \mathbin{+\mathord\uparrow}}									%%
+																%%			
+\newcommand*\downplus{% positive down							%%		
+  \mathbin{+\mathord\downarrow}}								%%
+  																%%		
+\newcommand*\downrightplus{% positive down and right			%%	
+  \mathbin{+ \rotatebox[origin=c]{-30}{$\m@th\rightarrow$}}}	%%
+\makeatother 													%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{mathtools}          %loads amsmath as well added for the piece wise function
+\DeclarePairedDelimiter\Floor\lfloor\rfloor
+\DeclarePairedDelimiter\Ceil\lceil\rceil
+
+ 
+\newcounter{NumberInTable}
+\newcommand{\LTNUM}{\stepcounter{NumberInTable}{(\theNumberInTable)}}
+
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left[#1\right]}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left[#1\right]}}}
+\renewcommand{\textuparrow}{$\uparrow$}
+
+\usepackage{standalone} % This is the only new package required to compile the entire document
+\usepackage{chapterbib}   
+
+\numberwithin{equation}{section}	% added so the equsation numbers are section.# and start at section.1
+
+\begin{document}
+
+\begin{center}
+	{\fontsize{50}{60}\selectfont Open Controls}
+	
+	\vspace{3cm}
+	
+	\begin{figure}[H]
+		\includegraphics[width=6.5in]{figures/PID_controller.png}
+		\label{fig:title_figure}
+	\end{figure} 
+	
+	\vspace{3cm}
+	
+	\textbf{Austin R.J. Downey}\\ Department of Mechanical Engineering \\ Department of Civil and Environmental Engineering \\ University of South Carolina, Columbia SC, USA 
+	
+	\vspace{1.5cm}
+	
+	\textbf{Victor Giurgiutiu}\\  Department of Mechanical Engineering \\ University of South Carolina, Columbia SC, USA 
+	
+	\vspace{1cm}
+	
+	\today
+\end{center}
+
+\pagebreak
+
+\section*{Preface}
+
+This open-source text is designed to offer the reader a complete text on the basics of control theory within the contest of Mechanical Engineering. 
+
+
+\subsection*{Cover Art}
+A proportional-integral-derivative (PID) controller is a feed-back controller used in a variety of applications that require continuously modulated control. The Russian American engineer Nicolas Minorsky was arguably the first to develop the theoretical analysis of the PID controller in 1922  while he was researching and designing automatic ship steering for the US Navy. He based his work on watching how a ship's helmsman responds to wave loading on a ship, with a delayed input to the helm that not only considered the current ship course, but also past error and the desired rate of change for the ship. For a helmsman, the goal is stability, not absolute control, which simplifies how one thinks about the challenge of control.
+
+\subsection*{License}
+This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License[cc-by-sa 4.0]. More information on the Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) can be found at  \url{https://creativecommons.org/licenses/by-sa/4.0/}
+
+\subsection*{Source Code}
+The source code for this text is available at \url{https://github.com/austindowney/Open-Controls}.
+
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+
+% Chapter 1 Basic Concepts
+\graphicspath{Chapter_1_Basic_Concepts/}
+\input{Chapter_1_Basic_Concepts/Chapter_1_Basic_Concepts.tex}
+
+% what remains does not work as it tries to draw from the PDF notes. 
+
+% Chapter 2 systems
+\include{Chapter_2_Systems/Chapter_2_Systems.tex}
+
+% Chapter 3 Transfer Functions
+\include{Chapter_3_Transfer_Functions/Chapter_3_Transfer_Functions.tex}
+
+% Chapter 4 Time Series Response
+\include{Chapter_4_Time_Series_Response/Chapter_4_Time_Series_Response.tex}
+
+% Chapter 5 Performance Indicators
+\include{Chapter_5_Performance_Indicators/Chapter_5_Performance_Indicators.tex}
+
+% Chapter 6 System Identification
+\include{Chapter_6_System_Identification/Chapter_6_System_Identification.tex}
+
+% Chapter 5 Control systems
+\include{Chapter_7_Control_systems/Chapter_7_Control_systems.tex}
+
+% Chapter 6 Frequency Analysis
+\include{Chapter_8_Frequency_Analysis/Chapter_8_Frequency_Analysis.tex}
+
+% Chapter 7 Additional Topics
+\include{Chapter_9_Additional_Topics/Chapter_9_Additional_Topics.tex}
+
+
+
+
+
+
+
+%	\pagebreak
+%	\renewcommand{\thepage}{}
+%	\renewcommand\refname{References Cited}
+%	\pagestyle{plain}
+%	\bibliographystyle{Downey_NSF}
+%	\bibliography{Chapter_1_Basic_Concepts}
+%
+%
+%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
