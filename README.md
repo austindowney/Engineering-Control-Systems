@@ -15,10 +15,7 @@ This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-
-## Notes:
-1. The full document will compile on Windows, but there is an issue with the figures file location. However, if everything is embedded it works. 
-1. The full document will not complile on Linux. Chapters will compile.   
+## Citation
 
 Cite as  
 @Misc{Downey2021OpenVibrations,  
