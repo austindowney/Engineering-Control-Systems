@@ -1,8 +1,8 @@
 # Open-Controls
-This open-source text is designed to offer the reader a complete text on the basics of control theory within the contest of Mechanical Engineering. 
+This open-source text is designed to offer the reader a complete text on the basics of control theory within the context of Mechanical Engineering. 
 
 <p align="center">
-<img src="figures/PID_controller.png" alt="drawing" width="700"/>
+<img src="source_material/figures/PID_controller.png" alt="drawing" width="700"/>
 </p>
 <p align="center">
 </p>
@@ -18,11 +18,9 @@ This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 ## Citation
 
 Cite as  
-@Misc{Downey2021OpenVibrations,  
+@Misc{DowneyOpenVibrations,  
   author = {Austin Downey and Victor Giurgiutiu},  
-  month  = june,  
   title  = {Open Controls},  
-  year   = {2022},  
   url    = {https://github.com/austindowney/Open-Controls},  
 }  
 
