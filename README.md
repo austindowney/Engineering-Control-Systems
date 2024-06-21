@@ -7,7 +7,7 @@ This open-source text is designed to offer the reader a complete text on the bas
 <p align="center">
 </p>
 
-A current PDF version of the text can be found by clicking <a href="https://github.com/austindowney/Engineering-Control-Systems/blob/main/Engineering_-_Control_Systems.pdf">here</a>.
+A current PDF version of the text can be found by clicking <a href="https://github.com/austindowney/Engineering-Control-Systems/blob/main/Engineering_Control_Systems.pdf">here</a>.
 
 ## License
 
