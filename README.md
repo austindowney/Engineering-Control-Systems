@@ -7,7 +7,7 @@ This open-source text is designed to offer the reader a complete text on the bas
 <p align="center">
 </p>
 
-A current PDF version of the text can be found in the releases tab of the GitHub page or by clicking <a href="https://github.com/ARTS-Laboratory/Open_Controls/releases">here</a>.
+A current PDF version of the text can be found by clicking <a href="https://github.com/austindowney/Open-Controls/blob/main/Open_Control.pdf">here</a>.
 
 ## License
 
