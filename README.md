@@ -1,4 +1,4 @@
-# Open-Controls
+# Engineering Control Systems: A Practical Introduction for Mechanical and Civil Engineers
 This open-source text is designed to offer the reader a complete text on the basics of control theory within the context of Mechanical Engineering. 
 
 <p align="center">
@@ -7,7 +7,7 @@ This open-source text is designed to offer the reader a complete text on the bas
 <p align="center">
 </p>
 
-A current PDF version of the text can be found by clicking <a href="https://github.com/austindowney/Open-Controls/blob/main/Open_Control.pdf">here</a>.
+A current PDF version of the text can be found by clicking <a href="https://github.com/austindowney/Engineering-Control-Systems/blob/main/Engineering_-_Control_Systems.pdf">here</a>.
 
 ## License
 
@@ -18,9 +18,9 @@ This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 ## Citation
 
 Cite as  
-@Misc{DowneyOpenVibrations,  
+@Misc{DowneyEngineeringControlSystems,  
   author = {Austin Downey and Victor Giurgiutiu},  
-  title  = {Open Controls},  
+  title  = {Engineering Control Systems},  
   url    = {https://github.com/austindowney/Open-Controls},  
 }  
 
