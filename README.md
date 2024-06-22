@@ -1,4 +1,4 @@
-# Engineering Control Systems: A Practical Introduction for Mechanical and Civil Engineers
+# Engineering Control Systems: A Practical Introduction for Mechanical, Civil, and Aerospace Engineers
 This open-source text is designed to offer the reader a complete text on the basics of control theory within the context of Mechanical Engineering. 
 
 <p align="center">
