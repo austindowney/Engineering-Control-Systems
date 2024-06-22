@@ -21,6 +21,6 @@ Cite as
 @Misc{DowneyEngineeringControlSystems,  
   author = {Austin Downey and Victor Giurgiutiu},  
   title  = {Engineering Control Systems},  
-  url    = {https://github.com/austindowney/Open-Controls},  
+  url    = {https://github.com/austindowney/Engineering-Control-Systems},  
 }  
 
