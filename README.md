@@ -2,7 +2,7 @@
 This open-source text is designed to offer the reader a complete text on the basics of control theory within the context of Mechanical Engineering. 
 
 <p align="center">
-<img src="source_material/figures/controller_PID.png" alt="drawing" width="700"/>
+<img src="source_material/figures/Union-Pacific-119.jpg" alt="drawing" width="700"/>
 </p>
 <p align="center">
 </p>
