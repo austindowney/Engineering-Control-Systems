@@ -5,73 +5,16 @@
 \begin{document}
 	
 	% set the section number, along with figure and equation numbers
-	\setcounter{section}{0}	
-	\setcounter{figure}{0}   
+	\setcounter{section}{0}
+	\setcounter{figure}{0}
 	\renewcommand\thefigure{\thesection.\arabic{figure}}
 
-
-\section{Text Overview}
-
-\begin{itemize}
-	\item Systems, 1\textsuperscript{st} order, 2\textsuperscript{nd} order, and higher order.
-	\begin{itemize}
-		\item Introduction to control systems		
-		\item Differential equations
-		\item General solution
-		\item Free Response
-		\item Stability 
-		\item Laplace Transforms
-	\end{itemize}
-	\item Performance
-	\begin{itemize}
-		\item Time response
-		\item Performance indicators
-		\item System identification
-	\end{itemize}
-\item Control Systems
-\begin{itemize}
-	\item Feedback
-	\item Stability
-	\item Controllers 
-\end{itemize}
-\item Frequency Analysis
-\begin{itemize}
-	\item FRF
-	\item Bode
-	\item Nyquist
-	\item Mangus 
-\end{itemize}
-\item Additional Topics
-\begin{itemize}
-	\item Combined Analysis
-	\item CSD
-	\item Single-input single-output (SISO)
-	\item Tool
-	\item State Space Models (introduction)
-\end{itemize}
-
-\end{itemize}
-
-
-
-%		\begin{figure}[H]
-%			\centering
-%			\includegraphics[width=\linewidth]{../figures/simple_neural_network_vs_deep_learning.jpg}
-%			\caption{simple neural network vs deep learning}
-%			\label{fig:simple_neural_network_vs_deep_learning}
-%		\end{figure}
-
-
-
-
-
-
+\section{Basic Concepts}
 
 \subsection{Basics of Control System}
 A control system consisting of interconnected components is designed to achieve a desired purpose. To understand the purpose of a control system, it is useful to examine examples of control systems through the course of history. These early systems incorporated many of the same ideas of feedback that are in use today.
 
 Modern control engineering practice includes the use of control design strategies for improving manufacturing processes, the efficiency of energy use, advanced automobile control, including rapid transit, among others. 
-
 
 
 \noindent \textbf{System} - An interconnection of elements and devices for a desired purpose. \\
@@ -84,7 +27,7 @@ Modern control engineering practice includes the use of control design strategie
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[]{../figures/control_system_input_output}
+			\includegraphics[width=0.5\textwidth]{../figures/generated/ch01/ch01_cs_io.pdf}
 			\caption{Process to be controlled.}
 			\label{fig:input_output_control_system}
 		\end{figure}
@@ -96,7 +39,7 @@ Modern control engineering practice includes the use of control design strategie
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[]{../figures/control_system_open_loop}
+			\includegraphics[width=\textwidth]{../figures/generated/ch01/ch01_cs_open_loop.pdf}
 			\caption{Open-loop control system (without feedback).}
 			\label{fig:open_loop_control_system}
 		\end{figure}
@@ -105,20 +48,20 @@ Modern control engineering practice includes the use of control design strategie
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=4.5in]{../figures/control_system_closed_loop}
+			\includegraphics[width=\textwidth]{../figures/generated/ch01/ch01_cs_closed_loop.pdf}
 			\caption{Closed-loop control system (with feedback).}
 			\label{fig:closed_loop_control_system}
 		\end{figure}
 
 
 
-\noindent \textbf{Multivariable Control System} - a control system with multiple desired response controlled by multiple output variables. 
+\noindent \textbf{Multivariable Control System} - a control system with multiple input, control, and output variables. These signals are commonly represented as vectors.
 
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=4.5in]{../figures/control_system_closed_loop_multivariable}
-			\caption{Multivariable control system with many inputs and many outputs to the system.}
+			\includegraphics[width=\textwidth]{../figures/generated/ch01/ch01_cs_mimo.pdf}
+			\caption{Multivariable feedback control system with vector-valued input, control, and output signals.}
 			\label{fig:multivariable_control_system}
 		\end{figure}
 
@@ -165,7 +108,7 @@ Controllers in the form of centrifugal governors for steam engines set off the i
 			\label{fig:steam_engines}
 		\end{figure}
 	\footnotetext[1]{Dr. Mirko Junge, CC BY 3.0 $<$https://creativecommons.org/licenses/by/3.0$>$, via Wikimedia Commons.}
-	\footnotetext[2]{Nicol·s PÈrez, CC BY-SA 3.0 $<$http://creativecommons.org/licenses/by-sa/3.0/$>$, via Wikimedia Commons.}
+	\footnotetext[2]{Nicol√°s P√©rez, CC BY-SA 3.0 $<$http://creativecommons.org/licenses/by-sa/3.0/$>$, via Wikimedia Commons.}
 
 \pagebreak
 		Arguably, the Russian American engineer Nicolas Minorsky was the first to develop the theoretical analysis for the three-term control we now call PID. This was done in 1922 while he was researching and designing automatic ship steering for the US Navy. He based his work on watching how a ship's helmsman responds to wave loading on a ship, with a delayed input to the helm that not only considered the current ship course, but also past error and the desired rate of change for the ship. For a helmsman, the goal is stability, not absolute control, which simplifies how one thinks about the challenge of control.
@@ -212,4 +155,3 @@ Controllers in the form of centrifugal governors for steam engines set off the i
 
 
 \end{document}
-
