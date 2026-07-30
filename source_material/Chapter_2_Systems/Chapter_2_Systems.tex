@@ -18,8 +18,7 @@
 
     Vibrations impact our daily lives in a variety of ways, from the sound made by banjo strings that vibrates between 140 and 400 Hz to the 4-6 Hz vibration felt by a passenger in a car seat. The consideration of the vibrations and their associated mathematical modeling are an important factor in the design of mechanical systems. In the material that follows, the fundamental theories of vibration are presented and modeled using fundamental physical principles such and Newton's three laws of motion. These models and analyzed using the mathematical tools of calculus and differential equations. 
 
-	\begin{review}
-		Newton's three laws of motion:
+	\begin{review}[Newton's Three Laws of Motion]
 		\begin{enumerate}
 			\item In an inertial frame of reference, an object either remains at rest or continues to move at a constant velocity, unless acted upon by a force.
 			\item In an inertial reference frame, the vector sum of the forces $F$ on an object is equal to the mass m of that object multiplied by the acceleration of the object: $F = ma$. (It is assumed here that the mass m is constant)
@@ -49,7 +48,7 @@
 
 		\subsubsection{Spring-Mass Model}
 
-			\quotebox{\Large{All models are wrong, but some are useful}}{George E.P. Box (1919 - 2013)}	
+			\quotebox{All models are wrong, but some are useful.}{George E. P. Box (1919--2013)}
 							
             Newtonian physics describes the motion of particles in terms of displacement $x$, velocity $\dot{x}$, and acceleration $\ddot{x}$ vectors. Moreover, from Newton's second law of motion says that the change in the velocity of mass in motion is a product of the force acting on the mass. A simple way to express this phenomenon is though a spring-mass model as presented in figure  \ref{fig:spring_mass_model_with_point_mass}. These spring-mass models neglect the mass of the spring and concentrate all the mass of the system into a single point. Note that in this case the force vector and mass-acceleration vectors lie on the same axis and as such are collinear. Therefore, these vectors can be easily treated as scalers simplifying the math used in the modeling of the system.     
 
@@ -104,7 +103,7 @@
 			m \ddot{x} + k x = 0
 		\end{equation}
 
-		\begin{review}
+		\begin{review}[Second-Order Homogeneous Differential Equations]
 			A second-order linear homogeneous differential equation has the form:
 			
 			\begin{equation}
@@ -115,7 +114,7 @@
 		\end{review}
 
 					
-		\begin{example}			
+		\begin{example}[Horizontal Spring--Mass Equation of Motion]
 			
 			Considering the system:
 			\begin{figure}[H]
@@ -123,8 +122,7 @@
 				\includegraphics[]{../figures/1-DOF-spring_mass_horizontal.png}
 			\end{figure}		
 			
-			\textbf{Step-1}
-			Define the direction of displacement, and draw the FBD for the equilibrium and displaced state.  
+			\examplestep{Define the displacement direction and draw the free-body diagrams.}
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.45\textwidth]{../figures/1-DOF-mass_horizontal_FBD.png}\\
@@ -140,27 +138,26 @@
 			\end{equation}		
 			This equation does not equal zero as the FBD does not account for the restoring force. 
 	
-			\noindent	\textbf{Step-2} Apply Newton's second law (we want to store energy in the kinetic state) of motion to the sum of forces for the displaced position we get: 		 		
+			\examplestep{Apply Newton's second law to the displaced state.}
 			\begin{equation}
 			ma = m\ddot{x} = \rightplus \sum F_x = -kx
 			\end{equation}			
 			\begin{equation}
 			m\ddot{x} = -kx
 			\end{equation}				
-			\textbf{Step-3} Rearrange in the Equation to construct an EOM: 			
+			\examplestep{Rearrange the result into standard equation-of-motion form.}
 			\begin{equation}
 			m\ddot{x} + kx = 0
 			\end{equation}		
 		\end{example}			
 
-		\begin{example}	
-			Some systems will have an initial displacement, as the system will oscillate around this position we need to define the EOM about this position. Considering the system:
+		\begin{example}[Initial Displacement of a Vertical Spring--Mass System]
+			Some systems have an initial displacement. Because the system oscillates about this position, the equation of motion must be defined relative to that position. Consider the following system:
 			\begin{figure}[H]
 				\centering
 				\includegraphics[]{../figures/1-DOF-spring_mass_vertical.png}
 			\end{figure}		
-			\noindent \textbf{Step-1}
-			Define the direction of displacement, and draw the FBD for the equilibrium and displaced state.  
+			\examplestep{Define the displacement direction and draw the free-body diagrams.}
 			\begin{figure}[H]
 				\centering
 				\includegraphics[]{../figures/1-DOF-spring_mass_vertical_FBD.png}\\
@@ -176,7 +173,7 @@
 			\end{equation}	
 			This equation does not equal zero as the FBD does not account for the restoring force.	
 			
-			\noindent \textbf{Step-2} Apply Newton's second law (we want to store energy in the kinetic state) of motion to the sum of forces for the displaced position we get: 		
+			\examplestep{Apply Newton's second law to the displaced state.}
 			\begin{equation}
 				m\ddot{x} = \downplus \sum F_x =mg -k\delta -kx
 			\end{equation}
@@ -184,7 +181,7 @@
 			\begin{equation}
 				m\ddot{x} = -kx
 			\end{equation}				
-			\textbf{Step-3} Rearrange in the Equation to construct an EOM: 					
+			\examplestep{Rearrange the result into standard equation-of-motion form.}
 			\begin{equation}
 				m\ddot{x} + kx = 0
 			\end{equation}			
@@ -396,12 +393,9 @@ as shown in figure~\ref{fig:1-DOF_free_decay}. Note that the lack of mass in the
 \subsubsection{Stability of 1\textsuperscript{st}-order systems}
 Using the general free response form eq~\ref{eq:free_response} where $p$ is a root of the charismatic equation (equation~\ref{eq:characteristic_equation}) and is called the ``pole''. The stability of the system is dictate by the sign of of $p$, i.e., its location in the complex $p$ plane.
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\bl{NOTE}
-\end{center}
+\begin{booknote}
 A \textbf{Stable System} is a system where if a disturbance is applied, then the system returns to its initial state. 
-\end{mdframed}
+\end{booknote}
 
 \begin{figure}[H]
 	\centering
@@ -519,7 +513,7 @@ where $c$ is the amplitude of oscillation and $\phi$ is the phase angle.
 \end{figure}
 \noindent where $x_0$ and $v_0$ are the is the displacement and velocity at $t$=0 (i.e. the initial displacement). 
 
-		\begin{review}
+		\begin{review}[Euler's Formula]
 		
 			Euler's (pronounced oy-ler) formula, named after Swiss engineer and mathematician Leonhard Euler (1707-1783), is a mathematical formula in complex analysis that establishes the fundamental relationship between the trigonometric functions and the complex exponential function. Euler's formula states that for any real number $x$,
 			\begin{equation}
@@ -538,10 +532,7 @@ where $c$ is the amplitude of oscillation and $\phi$ is the phase angle.
 		\end{review}
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 Showing that $x_\text{c}(t) = c_1 e ^{i \omega_\text{n} t} + c_2 e ^{-i \omega_\text{n} t} $ is the same as $x_c(t) = C \sin(\omega_\text{n} t + \phi) $, consider Euler's identity, 
 \begin{equation}
 e^{i \alpha} = \cos(\alpha) + i \sin(\alpha)
@@ -586,7 +577,7 @@ and
 C = \sqrt{A^2 + B^2}, \;\;\;\;  \frac{A}{B} = \frac{c \sin(\phi)}{c \cos(\phi)} = c \tan(\phi), \;\;\;\;  \phi = \tan^{-1} \frac{A}{B}
 \end{equation}
 
-\end{mdframed}
+\end{bookproof}
 
 The Standard form of Inhomogeneous Equation can be found, starting at the EOM:
 \begin{equation}
@@ -787,7 +778,7 @@ p_{1,2} = -\zeta \omega_\text{n} \pm i  \sqrt{1 - \zeta^2}
 
 
 
-\begin{example}
+\begin{example}[Stability of Second-Order Systems]
 Do example on stability of 2\textsuperscript{nd} order systems
 \end{example}
 
@@ -817,4 +808,3 @@ Do example on stability of 2\textsuperscript{nd} order systems
 
 
 \end{document}
-

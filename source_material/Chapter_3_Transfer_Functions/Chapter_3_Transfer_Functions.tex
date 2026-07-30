@@ -38,7 +38,7 @@
 
 
 
-\begin{review}
+\begin{review}[Laplace Transforms]
 	\label{sec:Laplace_review}
 				
 		Laplace transforms, or more boradly integral transform, are a procedure for integrating the time ($t$) dependence of a function into a function of of position or space ($s$). By transforming the whole whole differential equation from the time domain into a lower order function of space the problem becomes easier to solve as the function can often be manipulated algebraically. 
@@ -237,7 +237,7 @@ The time domain response of a system to an arbitrary input force in time can be 
 
 
 
-\begin{example}
+\begin{example}[Double-Impact Response]
 
 
 In testing, an hammer is used to excite a 1-DOF system with an impact (i.e. impulse), however, the hammer ascendantly impacts the system twice. The first impact has a force of 0.2 N, while the second has a force of 0.1 N and happens 0.1 seconds after the first impact. Plot the response for the double impact. The system has the parameters $m$ = 1 kg, $c$ = 0.5 kg/s, k = 4 N/m. 
@@ -347,10 +347,7 @@ For the mass, damping, and stiffness values given above this can be plotted as:
 
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 Show that
 \begin{equation}
 \Laplace{e^{p_0t}} = \frac{1}{s -p_0} 
@@ -383,7 +380,7 @@ Therefore, it can be shown that:
 \begin{equation}
 \Laplace{e^{p_0t}} = \frac{1}{s -p_0} 
 \end{equation}
-\end{mdframed}
+\end{bookproof}
 
 
 
@@ -406,10 +403,7 @@ Therefore, it can be shown that:
 		\end{figure}
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 Show that
 \begin{equation}
 \Laplace{1(t)} = \frac{1}{s}
@@ -421,7 +415,7 @@ This can be done as:
 &= \frac{-1}{s}e^{-st}\bigg|^\infty_0 \\ \nonumber
 &= \frac{1}{s} 
 \end{align}
-\end{mdframed}
+\end{bookproof}
 
 		\subsubsection{Laplace transform of ramp function}
 
@@ -444,10 +438,7 @@ This can be done as:
 
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 Show that
 \begin{equation}
 \Laplace{t} = \frac{1}{s^2}
@@ -479,7 +470,7 @@ Using these expressions, we get
 &= \bigg[\frac{1}{s}\bigg]\bigg[\frac{1}{s}\bigg],\text{ as }  \Laplace{1(t)} =  \int_{0}^{\infty} e^{-st} dt  = \frac{1}{s} \\ \nonumber
 &= \frac{1}{s^2}
 \end{align}
-\end{mdframed}
+\end{bookproof}
 
 
 		\subsubsection{Laplace transform shifted step function}
@@ -499,10 +490,7 @@ Using these expressions, we get
 			\label{fig:Laplace_shifted_step_transform}
 		\end{figure}
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 Show that
 \begin{equation}
 \Laplace{1\cdot(t-\tau)} =e^{-\tau s} \frac{1}{s}
@@ -529,7 +517,7 @@ connecting the start of proof to the end shows:
 \begin{equation}
 \Laplace{1\cdot(t-\tau)} =e^{-\tau s} \frac{1}{s}
 \end{equation}
-\end{mdframed}
+\end{bookproof}
 
 
 		\subsubsection{Laplace transform pulse function}
@@ -550,10 +538,7 @@ connecting the start of proof to the end shows:
 		\end{figure}
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 Show that
 \begin{equation}
 \Laplace{p(t;\tau)} = \frac{1-e^{-st\tau}}{s \tau}
@@ -580,7 +565,7 @@ connecting the start of proof to the end shows:
 \Laplace{p(t;\tau)} = \frac{1-e^{-s \tau}}{s \tau}
 \end{equation}
 
-\end{mdframed}
+\end{bookproof}
 
 
 
@@ -602,10 +587,7 @@ connecting the start of proof to the end shows:
 		\end{figure}
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 Show that
 \begin{equation}
 \Laplace{\delta(t)} = 1
@@ -645,7 +627,7 @@ Again, connecting the start of proof to the end shows:
 \begin{equation}
 \Laplace{\delta(t)} = 1
 \end{equation}
-\end{mdframed}
+\end{bookproof}
 
 \subsection{Properties of Laplace Transforms}
 
@@ -695,11 +677,7 @@ The Laplace transforms can be simplified if we assume $ f(0) = 0$, where these a
 Recall that differentiation in the time domain becomes multiplication by s in the s-domain.
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
-
+\begin{bookproof}
 \noindent \textbf{Method 1:}
 Show that $\Laplace{f'(t)} = s F(s)$ if $f(0) = 0$;
 \begin{equation}
@@ -739,7 +717,7 @@ by induction it can be shown that
 \end{equation}
 
 Bottom line: ``to differentiate, multiply by $s$'', provided $f(0) =0$, $f'(0) =0$, etc. Else, need to subtract them $\Laplace{f'(t)} = sF(s) -f(0)$ etc. 
-\end{mdframed}
+\end{bookproof}
 
 \subsubsection{Integration Property}
 
@@ -749,11 +727,7 @@ The integral of $f(t)$ is
 \end{equation}
 where $t^*$ is the dummy variable to integrate over as $t$ is used for the limit.  The main take away here is that integration in the time domain becomes division by s in the s-domain.
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
-
+\begin{bookproof}
 \noindent Show that $\Laplace{\int_{0}^{t}f(t^*)dt^*} = \frac{1}{s}F(s)$. Denote $g(t) =  \int_{0}^{t}f(t^*)dt^*$, then:
 \begin{equation}
 g'(t) = f(t)\text{; } g(0) = 0
@@ -777,7 +751,7 @@ divide by $s$ to get
 \end{equation}
 
 Bottom line: ``to integrate, divide by $s$''. 
-\end{mdframed}
+\end{bookproof}
 
 
 \subsubsection{Time Shift Property}
@@ -804,10 +778,7 @@ Note that:
 \end{itemize}
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
+\begin{bookproof}
 \noindent \textbf{t-domain}
 
 For a shift in $t$, show that $\Laplace{f(t-t_0)} = e^{-t_0s}F(s)$
@@ -841,7 +812,7 @@ For a shift in $s$, show that $\Laplace{e^{s_0t}f(t)} = F(s-s_0)$
 &= F(s-s_0)
 \end{align}
 
-\end{mdframed}
+\end{bookproof}
 
  
 
@@ -858,11 +829,7 @@ x_{ss} =  \lim\limits_{s\rightarrow 0} [s X(s)]
 \end{equation}
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-\begin{center}
-\gr{Proof}
-\end{center}
-
+\begin{bookproof}
 Prove that $x_{ss} = \lim\limits_{s\rightarrow 0} s X(s)$. Starting with, 
 \begin{equation}
 \Laplace{\dot{x}(t)} = s X(s)\text{, } x(0)=0
@@ -893,7 +860,7 @@ inserting this term back into equation~\ref{eq:final_value_theorem_eq_1} yields 
 x_{ss} =  \lim\limits_{s\rightarrow 0} [s X(s)]
 \end{equation}
 
-\end{mdframed}
+\end{bookproof}
 
 
 \subsection{Convolutional property of Laplace Transforms}
@@ -1051,7 +1018,7 @@ While the amplitude of the frequency response is:
 H(\omega) = |H(j\omega)| = \frac{1}{\sqrt{(k-m\omega^2)^2+c^2\omega^2}}
 \end{eqnarray}
 
-\begin{example}
+\begin{example}[Sinusoidally Forced Spring--Mass--Damper System]
 	Considering the forced system:
 	\begin{figure}[H]
 		\centering
@@ -1091,10 +1058,8 @@ H(\omega) = |H(j\omega)| = \frac{1}{\sqrt{(k-m\omega^2)^2+c^2\omega^2}}
 	This is identical to the solution obtained using $F_0 \cos(\omega t)$ as would be expected because the transfer function is related to the system and not to the input. 
 \end{example}  
 
-\begin{review}
+\begin{review}[Frequency and Time Domains]
 	\label{sec:TimeFrequencySpectrum}
-
-	\textbf{Frequency and Time Domains}
 
 	\noindent The frequency domain is a mathematical representation of a signal or data in terms of its frequency components, as opposed to its temporal or time-based representation. The frequency domain provides a different perspective on the signal by decomposing it into its constituent sinusoidal signals at discrete frequencies and their respective magnitudes. A 3D rerensation of this process is shown in figure~\ref{fig:3D_time_frequency_analysis}. The transformation between the time domain and the frequency domain is typically achieved using mathematical techniques such as the Fourier Transform or the Fast Fourier Transform (FFT).
 
@@ -1189,7 +1154,7 @@ S_{xx}(\omega) =  |H(j\omega)|^2 S_{ff}(\omega)
 where $R_{ff}$ denotes the autocorrelation function of $F(t)$ and $S_{ff}$ denotes the PSD of the forcing function $F(t)$. The notation $|H(j\omega)|^2$ is the square of the magnitude of the complex frequency response function. A more detailed derivation can be found in [Engineering Vibrations, Inman (2001)],[Random Vibrations, Spectral \& Wavelet Analysis, Newland (1993)], but here it is more important to study the results rather than the derivations. 
 
 
-\begin{example}
+\begin{example}[Response PSD under White-Noise Excitation]
 	Consider the following system
 	\begin{figure}[H]
 		\centering
@@ -1250,7 +1215,7 @@ and
 \end{equation} 
 When combined with equation \ref{eq:variance_for_S_O}, these integrals allow for the easy calculation of the expected values. 
 
-\begin{example}
+\begin{example}[Mean-Square Response to White Noise]
 	For system below, calculate the mean-square response of the system given that the the spectrum of the input force $F(t)$ is a perfect theoretical white noise.
 	\begin{figure}[H]
 		\centering
@@ -1332,7 +1297,7 @@ For stable systems, we we expect $\sigma > 0$ so, $\sigma = -|\sigma|$ as the po
 	\end{figure}
 
 
-\begin{example}
+\begin{example}[Partial Fractions with MATLAB]
 
 For the system in the S-domain expressed as,
 \begin{equation}
@@ -1564,4 +1529,3 @@ If system is stable, $\sigma_k<0$ (all poles on the left hand side) then:
 
 
 \end{document}
-

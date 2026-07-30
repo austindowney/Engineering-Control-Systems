@@ -22,7 +22,7 @@
 Given an experimental signal, the task is to find system parameters. 
 
 
-\begin{review}
+\begin{review}[Harry Nyquist]
 	\label{sec:Harry_Nyquist}
 		
 		Harry Nyquist (February 7, 1889 ? April 4, 1976) was a Swedish physicist and electronic engineer. His parents emigrated to the U.S. in 1907.  He attended the University of North Dakota starting in 1912 where he obtained a B.S. in 1914 and a M.S. in 1915, both in electrical engineering (entry to M.S. was 3 years!). Thereafter, he went to to Yale University where he received a Ph.D. in physics in 1917.
@@ -158,10 +158,7 @@ Note that you may use the consecutive points $A_1$, $A_2$ if $A_0$ is not easy t
 
 
 
-\begin{mdframed}[middlelinewidth=0.5mm]
-	\begin{center}
-		\gr{Proof}
-	\end{center}
+\begin{bookproof}
 For the expression
 \begin{align}
 x(t_{1/2}) &= 1/2 \\
@@ -179,7 +176,7 @@ where $W_0$ is the upper branch of the Lambert Function and $W_0\big(-\frac{t_{1
 	\caption{The upper branch of the Lambert Function graphed for $y = W_0(x)$ for real components. }
 \end{figure}
 
-\end{mdframed}
+\end{bookproof}
 
 
 
@@ -377,9 +374,7 @@ where
 
 System identification can be done through measuring performance indicators using Simulink.
 
-\begin{example}
-
-\textbf{SIMULINK Tutorial on Measuring Performance Indicators}
+\begin{example}[Second-Order Performance Indicators in Simulink]
 
 System identification can be done through measuring performance indicators using Simulink. Consider a 2\textsuperscript{nd}-order system with $k=700$ N/m, $c=15$ kg/s, and $m=7$ kg. To implement this in Simulink, one could use MATLAB to generate the transfer function:
 
@@ -528,7 +523,7 @@ Logarithmic decrement ($\zeta \ll 1$) For a vibrating system, the mass ($m$) and
 				c = \zeta 2\sqrt{km}
 			\end{equation}					
 
-\begin{example}
+\begin{example}[Damping from Logarithmic Decrement]
 			
 			Calculate the damping coefficient for the system with the measured amplitude as expressed below given that $m$ = 3 kg and $k$ = 43 N/m. Use $t_1$ = 1 sec, and $t_{n+1} =t_4=6$ sec. Use the peaks as marked in figure~\ref{fig:Logarithmic_decrement_with_noise}.
 
@@ -557,7 +552,7 @@ Logarithmic decrement ($\zeta \ll 1$) For a vibrating system, the mass ($m$) and
 \end{example}
 
 	
-\begin{example}
+\begin{example}[Vehicle Suspension Damping]
 
 			A vehicle wheel, tire, and suspension can be modeled as a SDOF spring and mass as depicted below: %The mass of the wheel and tire is measured to be 300 kg and its frequency of oscillation is observed to be 10 rad/sec. What is the stiffness of the wheel assembly?
 			
