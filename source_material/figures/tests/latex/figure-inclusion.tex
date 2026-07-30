@@ -1,0 +1,26 @@
+\documentclass{article}
+
+\usepackage[margin=15mm]{geometry}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+
+\newcommand{\FigurePair}[2]{%
+  \begin{figure}[p]
+    \centering
+    \textbf{Natural size}\par
+    \smallskip
+    \includegraphics{#1}\par
+    \bigskip
+    \textbf{Scaled to 45\% of the text width}\par
+    \smallskip
+    \includegraphics[width=.45\linewidth]{#1}
+    \caption{Figure-inclusion smoke test for \texttt{#2}.}
+  \end{figure}
+  \clearpage
+}
+
+\begin{document}
+\FigurePipelineFigures
+\end{document}

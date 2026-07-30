@@ -1,0 +1,2 @@
+# Standalone figure PDFs are committed build artifacts, not text sources.
+*.pdf binary

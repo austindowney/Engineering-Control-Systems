@@ -1,0 +1,75 @@
+name: Figure validation
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/figures.yml"
+      - ".gitignore"
+      - "Makefile"
+      - "scripts/**"
+      - "source_material/figures/**"
+  push:
+    branches:
+      - main
+      - "agent/pr-*"
+    paths:
+      - ".github/workflows/figures.yml"
+      - ".gitignore"
+      - "Makefile"
+      - "scripts/**"
+      - "source_material/figures/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: figures-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Build and validate figures
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      LC_ALL: C.UTF-8
+      PYTHONDONTWRITEBYTECODE: "1"
+      SOURCE_DATE_EPOCH: "0"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v5
+        with:
+          typst-version: 0.15.0
+
+      - name: Install PDF and LaTeX tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            ghostscript \
+            poppler-utils \
+            texlive-latex-base
+
+      - name: Record tool versions
+        run: |
+          typst --version
+          python3 --version
+          pdfinfo -v
+          gs --version
+          pdflatex --version
+
+      - name: Run figure test suite
+        run: make test
+
+      - name: Upload visual review gallery
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: figure-review
+          path: build/figure-review/
+          if-no-files-found: warn
+          retention-days: 14

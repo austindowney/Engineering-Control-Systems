@@ -10,5 +10,9 @@
 *.toc
 Control_Theory_in_Mechanical_Engineering.toc
 
-# Local book builds and validation artifacts.
+# Local book builds, figure galleries, test renderings, and reports.
 /build/
+
+# Python orchestration bytecode.
+__pycache__/
+*.py[cod]
