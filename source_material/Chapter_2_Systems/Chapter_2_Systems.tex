@@ -407,8 +407,8 @@ x_\text{c}(t) = c e^{ \sfrac{-t}{T}}
 as shown in figure~\ref{fig:1-DOF_free_decay}. Note that the lack of mass in the system prevents it from oscillate as there is no way for it to hold kinetic energy, and therefore no way for it to exchange energy between potential and kinetic forms. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=4in]{../figures/free_decay.png}
-	\caption{Free decay of a 1-DOF system}
+	\includegraphics[width=0.5\textwidth]{../figures/generated/ch02/ch02_first_order_free_decay.pdf}
+	\caption{Normalized free decay of a first-order 1-DOF system, with the response at one time constant identified.}
 	\label{fig:1-DOF_free_decay}
 \end{figure}
 
@@ -421,8 +421,21 @@ A \textbf{Stable System} is a system where if a disturbance is applied, then the
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6.5in]{../figures/system_stability_first_order.png}
-	\caption{Stability of a first order system for different $p$ values.}
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_first_order_stable.pdf}
+	\caption{Pole location and free response of a stable first-order system.}
+	\label{fig:first_order_stable}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_first_order_marginal.pdf}
+	\caption{Pole location and free response of a marginal first-order system.}
+	\label{fig:first_order_marginal}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_first_order_unstable.pdf}
+	\caption{Pole location and free response of an unstable first-order system.}
+	\label{fig:first_order_unstable}
 \end{figure}
 
 
@@ -722,13 +735,13 @@ x_\text{c}(t) = C e^{-\zeta \omega_\text{n} t} \sin (\omega_\text{d} t + \phi)
 This equation breaks down into two parts, one for the decay of the system and one for the oscillations as shown below:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5in]{../figures/decay_and_oscillations.png}
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_decay_and_oscillation_factors.pdf}
 	\caption{Decay and oscillations of the system.}
 \end{figure}
 Together, these make the free damped vibration response, as computed by the complementary solution $x_\text{c}(t)$
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5in]{../figures/free_decay_with_oscillations.png}
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_damped_free_response.pdf}
 	\caption{Free decay with oscillations.}
 \end{figure}
 Generating the standard form of the damped forced vibration problem is done by dividing the EOM by what leads the first term, mainly:
@@ -774,8 +787,21 @@ x_\text{c}(t) = C e^{-\zeta \omega_\text{n} t} \sin (\omega_\text{d} t + \phi)
 \end{equation}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6.5in]{../figures/stability_2nd_order.png}
-	\caption{Stability of 2\textsuperscript{nd} order systems.}
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_second_order_stable.pdf}
+	\caption{Pole locations and decaying response of a stable second-order system.}
+	\label{fig:second_order_stable}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_second_order_marginal.pdf}
+	\caption{Pole locations and sustained response of a marginal second-order system.}
+	\label{fig:second_order_marginal}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_second_order_unstable.pdf}
+	\caption{Pole locations and growing response of an unstable second-order system.}
+	\label{fig:second_order_unstable}
 \end{figure}
 
 Underdamped, critical-damped, overdamped 2\textsuperscript{nd} order systems and vibration response. 
