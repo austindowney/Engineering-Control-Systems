@@ -9,3 +9,6 @@
 *.toc
 *.toc
 Control_Theory_in_Mechanical_Engineering.toc
+
+# Local book builds and validation artifacts.
+/build/

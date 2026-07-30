@@ -9,6 +9,13 @@ This open-source text is designed to offer the reader a complete text on the bas
 
 A current PDF version of the text can be found by clicking <a href="source_material/Engineering_Control_Systems.pdf">here</a>.
 
+## Building the book
+
+The book builds with Tectonic and uses TeX Gyre Termes for text and TeX Gyre
+Termes Math for equations. Install both OpenType font families before building.
+Run `make book-typography-check` to confirm that the regular, bold, italic,
+bold-italic, and math faces are available and embedded correctly.
+
 ## License
 
 This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License [cc-by-sa 4.0].

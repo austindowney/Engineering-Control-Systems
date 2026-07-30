@@ -1,0 +1,73 @@
+name: Full book build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "agent/pr-*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: book-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Compile complete textbook
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install Tectonic 0.17.0
+        run: |
+          curl --fail --location --silent --show-error \
+            https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-x86_64-unknown-linux-gnu.tar.gz \
+            --output /tmp/tectonic.tar.gz
+          tar --extract --gzip --file /tmp/tectonic.tar.gz --directory /tmp
+          sudo install /tmp/tectonic /usr/local/bin/tectonic
+
+      - name: Install fonts and PDF inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            fonts-texgyre \
+            fonts-texgyre-math \
+            poppler-utils
+
+      - name: Record tool versions
+        run: |
+          tectonic --version
+          pdfinfo -v
+
+      - name: Compile the complete textbook
+        run: |
+          make book-check
+          make book-typography-check
+          pdfinfo build/book/Engineering_Control_Systems.pdf
+
+      - name: Upload compiled textbook
+        uses: actions/upload-artifact@v7
+        with:
+          name: engineering-control-systems-pdf
+          path: |
+            build/book/Engineering_Control_Systems.pdf
+            build/book-typography/typography_check.pdf
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload build log
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: engineering-control-systems-build-log
+          path: |
+            build/book/Engineering_Control_Systems.log
+            build/book-typography/typography_check.log
+          if-no-files-found: warn
+          retention-days: 30
