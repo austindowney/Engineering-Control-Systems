@@ -804,27 +804,81 @@ x_\text{c}(t) = C e^{-\zeta \omega_\text{n} t} \sin (\omega_\text{d} t + \phi)
 	\label{fig:second_order_unstable}
 \end{figure}
 
-Underdamped, critical-damped, overdamped 2\textsuperscript{nd} order systems and vibration response. 
-
-
+For an unforced second-order system, the damping ratio $\zeta$ determines
+whether the free response oscillates and how quickly it returns to
+equilibrium. The characteristic poles are
 \begin{equation}
-p_{1,2} = -\zeta \omega_\text{n} \pm i  \sqrt{1 - \zeta^2}
+	p_{1,2}
+	=
+	-\zeta\omega_\text{n}
+	\pm
+	\omega_\text{n}\sqrt{\zeta^2-1}.
+\end{equation}
+As $\zeta$ changes, these poles may be a complex-conjugate pair, a repeated
+real pole, or two distinct real poles. Figure~\ref{fig:damping_responses}
+compares the corresponding responses for the same normalized initial
+displacement and zero initial velocity.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../figures/generated/ch02/ch02_damping_responses.pdf}
+	\caption{Representative free responses of underdamped, critically damped,
+	and overdamped second-order systems.}
+	\label{fig:damping_responses}
+\end{figure}
+
+\noindent
+\textbf{Underdamped response ($0<\zeta<1$).}
+The poles are complex conjugates, so the system oscillates while its
+amplitude decreases exponentially. The response may be written as
+\begin{equation}
+	x(t)
+	=
+	C e^{-\zeta\omega_\text{n}t}
+	\sin\!\left(\omega_\text{d}t+\phi\right),
+	\qquad
+	\omega_\text{d}
+	=
+	\omega_\text{n}\sqrt{1-\zeta^2}.
 \end{equation}
 
-\begin{figure}[H]
+\noindent
+\textbf{Critically damped response ($\zeta=1$).}
+The system has a repeated pole at $p=-\omega_\text{n}$ and returns to
+equilibrium without oscillating. This is the fastest nonoscillatory response:
+\begin{equation}
+	x(t)
+	=
+	\left(C_1+C_2t\right)e^{-\omega_\text{n}t}.
+\end{equation}
+
+\noindent
+\textbf{Overdamped response ($\zeta>1$).}
+The system has two distinct negative real poles. Its response is the sum of
+two decaying exponentials,
+\begin{equation}
+	x(t)
+	=
+	C_1e^{p_1t}+C_2e^{p_2t},
+\end{equation}
+and it returns to equilibrium without oscillating, but more slowly than the
+critically damped case.
+
+\clearpage
+\begin{figure}[p]
 	\centering
-	\includegraphics[width=6.5in]{../figures/vibration_responses.png}
-	\caption{vibration responses.}
+	\includegraphics[
+		width=\textwidth,
+		height=210mm,
+		keepaspectratio
+	]{../figures/generated/ch02/ch02_second_order_pole_response_summary.pdf}
+	\caption{Relationship between pole location and the free response of a
+	second-order system. Pole configurations in the left half-plane are stable,
+	poles on the imaginary axis are critically stable, and poles in the right
+	half-plane are unstable.}
+	\label{fig:second_order-pole-response-summary}
 \end{figure}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=6.5in]{../figures/2nd_order_poles}
-	\caption{2nd order poles.}
-\end{figure}
-
-
+\clearpage
 
 \begin{example}[Stability of Second-Order Systems]
 Do example on stability of 2\textsuperscript{nd} order systems
