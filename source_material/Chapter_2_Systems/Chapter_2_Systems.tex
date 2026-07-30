@@ -188,64 +188,88 @@
 
 
 
-\subsection{Forcing Function}
+\subsection{Forcing Functions}
 
 \subsubsection{Step Function}
 
-A step function is a common loading situation and can represent the dropping of a load into a truck, a car going over a curve, or a motor starting up. The step function ($\Phi$) is also know as the Heaviside function
+A step function is a common loading model for an input that changes abruptly from zero to a constant value. It can represent dropping a load into a truck, a car encountering a sudden change in the road, or a motor starting. The unit step, denoted by $\Phi(t)$ and also known as the Heaviside function, is defined as
+\begin{equation}
+	\Phi(t)=
+	\begin{cases}
+		0, & t<0,\\
+		1, & t\geq 0.
+	\end{cases}
+	\label{eq:unit_step_definition}
+\end{equation}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6.5in]{../figures/step.png}
-	\caption{Step function.}
+	\includegraphics[width=0.5\textwidth]{../figures/generated/ch02/ch02_unit_step.pdf}
+	\caption{Unit step function.}
+	\label{fig:unit_step}
 \end{figure}
-
-
 
 \subsubsection{Pulse Function}
 
-Pulse function ($\rho(t;\uptau)$) consists of a step up at $t=0$ followed by a step down at $t=\uptau$. The amplitude is $\sfrac{1}{\uptau}$ so that the area under the pulse is constant and equal to unity ($A=1$). 
+A pulse function, denoted by $\rho(t;\tau)$, consists of a step up at $t=0$, followed by a step down at $t=\tau$. The pulse amplitude is $1/\tau$, so its width and height have a product of one. Consequently, changing the pulse duration changes its height while preserving unit area. A pulse can represent an actuator applying an approximately constant force for a fixed time before switching off:
+\begin{equation}
+	\rho(t;\tau)=
+	\begin{cases}
+		\dfrac{1}{\tau}, & 0\leq t<\tau,\\
+		0, & \text{otherwise}.
+	\end{cases}
+	\label{eq:unit_pulse_definition}
+\end{equation}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5.5in]{../figures/pulse_function.png}
-	\caption{Pulse function.}
+	\includegraphics[width=0.5\textwidth]{../figures/generated/ch02/ch02_unit_pulse.pdf}
+	\caption{Unit-area pulse with duration $\tau$.}
+	\label{fig:unit_pulse}
 \end{figure}
 
 \subsubsection{Impulse Function}
 
-Shock loads on mechanical systems represent a very common source of vibration. These short-duration forces are also called called an impulse. An impulse excitation is defined as a force that is applied for a very short, or infinitesimal, length of time. An impulse is a nonperiodic force that is represented by the symbol $\delta$. Impulse function ($\delta(t)$) is also known as the ``Dirac function'', ``Dirac delta function'', ``Dirac impulse function'', or ``delta function''. The impulse function $\delta(t)$ is obtained from the pulse function $\rho(t;\uptau)$ by letting $\uptau$ become infinitesimally small, i.e., 
+Shock loads are a common source of vibration in mechanical systems. These short-duration forces are called impulses. An impulse is a nonperiodic input that idealizes a force applied over a very short, or infinitesimal, interval. The unit impulse is denoted by $\delta(t)$ and is also called the Dirac function, Dirac delta function, Dirac impulse function, or delta function. It is obtained from the unit-area pulse $\rho(t;\tau)$ by allowing the pulse duration to approach zero while preserving its area:
+\begin{equation}
+	\begin{aligned}
+		\delta(t) &=
+		\lim_{\tau\rightarrow 0^{+}}\rho(t;\tau),
+		&
+		\int_{-\infty}^{\infty}\delta(t)\,\mathrm{d}t &= 1.
+	\end{aligned}
+	\label{eq:unit_impulse_definition}
+\end{equation}
+
+The arrow in figure \ref{fig:unit_impulse} represents concentration at $t=0$; its height is not a finite function value. The unit area carried by the impulse is the physically meaningful quantity.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5.5in]{../figures/impulse_function.png}
-	\caption{Impulse function.}
+	\includegraphics[width=0.5\textwidth]{../figures/generated/ch02/ch02_unit_impulse.pdf}
+	\caption{Unit impulse concentrated at $t=0$.}
+	\label{fig:unit_impulse}
 \end{figure}
-
-The area under the $delta$ function is equal to unity ($A=1$) just like the pulse function $\rho(t;\uptau)$.
 
 \subsubsection{Ramp Function}
 
-The ramp function is zero for $t<0$ and equal to $t$ for $t>0$. 
+A ramp function is zero for $t<0$ and increases linearly with time for $t\geq 0$. For example, when a hopper is filled at a constant mass-flow rate, the weight it supports increases approximately as a ramp. In a motion control system, a ramp can also represent the position command for a stage moving at constant velocity. The unit ramp has a slope of one and may be written as
+\begin{equation}
+	r(t)=
+	\begin{cases}
+		0, & t<0,\\
+		t, & t\geq 0,
+	\end{cases}
+	\qquad r(t)=t\Phi(t).
+	\label{eq:unit_ramp_definition}
+\end{equation}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=3.5in]{../figures/ramp_function.png}
-	\caption{Ramp function.}
+	\includegraphics[width=0.5\textwidth]{../figures/generated/ch02/ch02_unit_ramp.pdf}
+	\caption{Unit ramp function.}
+	\label{fig:unit_ramp}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=3.5in]{../figures/ramp_function.jpg}
-	\caption{Ramp function.}
-\end{figure}
-		\begin{equation}
-		f(t) =
-			\begin{cases}
-			t & \; t>0 \\
-			0 & \; t<0 \\
-			\end{cases}
-		\end{equation}
 	\subsection{Introduction to Stability}
 
 	The stability of a system is explained though ``poles'' and ``zeros''. The poles and the zeros of a system determine whether the system is stable, and how well the system performs.
