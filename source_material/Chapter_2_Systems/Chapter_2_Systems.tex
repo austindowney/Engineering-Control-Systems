@@ -195,62 +195,117 @@
 
 \subsection{Forcing Function}
 
+
 \subsubsection{Step Function}
 
-A step function is a common loading situation and can represent the dropping of a load into a truck, a car going over a curve, or a motor starting up. The step function ($\Phi$) is also know as the Heaviside function
+A step function is a common loading situation that can represent the sudden application of a load, such as dropping a load into a truck, a car going over a curb, or a motor starting up. The step function, also known as the \textit{Heaviside function}, is denoted by $\Phi(t)$ and is defined as
+\begin{equation}
+	\Phi(t) =
+	\begin{cases}
+		1, & t > 0,\\
+		0, & t < 0.
+	\end{cases}
+	\label{eq:step-function}
+\end{equation}
+The step function represents an input that changes instantaneously from zero to a constant value at $t=0$. The value assigned exactly at $t=0$ does not affect the applications considered here.
+
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6.5in]{../figures/step.png}
+	\includegraphics[width=3.5in]{../figures/function_step}
 	\caption{Step function.}
+	\label{fig:step-function}
 \end{figure}
+
 
 
 
 \subsubsection{Pulse Function}
 
-Pulse function ($\rho(t;\uptau)$) consists of a step up at $t=0$ followed by a step down at $t=\uptau$. The amplitude is $\sfrac{1}{\uptau}$ so that the area under the pulse is constant and equal to unity ($A=1$). 
+The pulse function $\rho(t;\tau)$ consists of a step up at $t=0$ followed by a step down at $t=\tau$. The parameter $\tau$ defines the duration of the pulse. The amplitude is chosen as $\sfrac{1}{\tau}$ so that the area under the pulse is constant and equal to unity ($A=1$):
+\begin{equation}
+	A = \int_{0}^{\tau} \frac{1}{\tau}\,dt = 1.
+	\label{eq:pulse-area}
+\end{equation}
+The pulse function is therefore defined as
+\begin{equation}
+	\rho(t;\tau) =
+	\begin{cases}
+		\sfrac{1}{\tau}, & 0 < t < \tau,\\
+		0, & \text{else}.
+	\end{cases}
+	\label{eq:pulse-function}
+\end{equation}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5.5in]{../figures/pulse_function.png}
+	\includegraphics[width=3.5in]{../figures/function_pulse}
 	\caption{Pulse function.}
+	\label{fig:pulse-function}
 \end{figure}
+
+
+
 
 \subsubsection{Impulse Function}
 
-Shock loads on mechanical systems represent a very common source of vibration. These short-duration forces are also called called an impulse. An impulse excitation is defined as a force that is applied for a very short, or infinitesimal, length of time. An impulse is a nonperiodic force that is represented by the symbol $\delta$. Impulse function ($\delta(t)$) is also known as the ``Dirac function'', ``Dirac delta function'', ``Dirac impulse function'', or ``delta function''. The impulse function $\delta(t)$ is obtained from the pulse function $\rho(t;\uptau)$ by letting $\uptau$ become infinitesimally small, i.e., 
+Shock loads on mechanical systems represent a very common source of vibration.
+These short-duration forces are also called impulses. An impulse excitation is
+defined as a force that is applied for a very short, or infinitesimal, length of
+time. An impulse is a nonperiodic force that is represented by the symbol
+$\delta$. The impulse function $\delta(t)$ is also known as the ``Dirac
+function'', ``Dirac delta function'', ``Dirac impulse function'', or ``delta
+function''.
+
+The impulse function is obtained from the pulse function $\rho(t;\tau)$ by letting the pulse duration $\tau$ become infinitesimally small:
+\begin{equation}
+	\delta(t) = \lim_{\tau \to 0} \rho(t;\tau).
+	\label{eq:impulse-limit}
+\end{equation}
+As the pulse duration approaches zero, its amplitude increases such that the area under the function remains equal to unity. Thus, the impulse satisfies
+\begin{equation}
+	A = \int_{-\infty}^{\infty} \delta(t)\,dt = 1.
+	\label{eq:impulse-area}
+\end{equation}
+
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=5.5in]{../figures/impulse_function.png}
+	\includegraphics[width=3.5in]{../figures/function_Impulse}
 	\caption{Impulse function.}
+	\label{fig:impulse-function}
 \end{figure}
 
-The area under the $delta$ function is equal to unity ($A=1$) just like the pulse function $\rho(t;\uptau)$.
+
+
+
+
 
 \subsubsection{Ramp Function}
 
-The ramp function is zero for $t<0$ and equal to $t$ for $t>0$. 
+The ramp function represents an input that begins at zero and increases linearly with time. As shown in Figure~\ref{fig:ramp-function}, the function is zero before $t=0$ and increases with a constant slope after $t=0$. The ramp function is defined as
+
+\begin{equation}
+	f(t) =
+	\begin{cases}
+		t, & t>0,\\
+		0, & t<0.
+	\end{cases}
+	\label{eq:ramp-function}
+\end{equation}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=3.5in]{../figures/ramp_function.png}
+	\includegraphics[width=3.5in]{../figures/function_ramp}
 	\caption{Ramp function.}
+	\label{fig:ramp-function}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=3.5in]{../figures/ramp_function.jpg}
-	\caption{Ramp function.}
-\end{figure}
-		\begin{equation}
-		f(t) =
-			\begin{cases}
-			t & \; t>0 \\
-			0 & \; t<0 \\
-			\end{cases}
-		\end{equation}
+
+	
+	
+	
+	
 	\subsection{Introduction to Stability}
 
 	The stability of a system is explained though ``poles'' and ``zeros''. The poles and the zeros of a system determine whether the system is stable, and how well the system performs.
@@ -360,7 +415,7 @@ The Homogeneous equation is obtained from equation~\ref{eq:ODE} and setting the 
 T\dot{x}_\text{c} + x_\text{c} = 0
 \label{eq:homogenous_solution}
 \end{equation}
-To solve, assume: \todo{I really think $c$ should be $a$ or it confuses with damping.}
+To solve, assume: 
 \begin{align}
 \label{eq:lambda}
 x_\text{c}(t) &= c e^{ p t} \\
@@ -410,20 +465,30 @@ A \textbf{Stable System} is a system where if a disturbance is applied, then the
 \end{figure}
 
 
+
 \subsubsection{Stability of 1\textsuperscript{st}-order Systems Under Forced Response}
 
-
-The total solution of equation~\ref{eq:ODE} is given as:
+The total response of a first-order system is the sum of the complementary and particular solutions. From Equation~\ref{eq:ODE}, the total solution is
 \begin{equation}
-x(t) = x_\text{c}(t)+x_\text{p}(t)
+	x(t) = x_\text{c}(t) + x_\text{p}(t).
 \end{equation}
-or as:
+For the first-order system considered here, the complementary solution is the free response,
 \begin{equation}
-x(t) = c e^{ \sfrac{-t}{T}} + x_\text{p}(t)
+	x_\text{c}(t) = c e^{\sfrac{-t}{T}}.
 \end{equation}
-The constant $c$ and the function $x_\text{p}(t)$ have to be determined depending on initial conditions and the forms of $f(t)$. In control theory, the initial conditions are usually assumed go be zero. 
+Therefore, the total response can be written as
+\begin{equation}
+	x(t) = c e^{\sfrac{-t}{T}} + x_\text{p}(t).
+\end{equation}
+The constant $c$ is determined by the initial condition, while the particular solution $x_\text{p}(t)$ is determined by the forcing function $f(t)$. Thus, the response of the system contains both a transient component associated with the initial condition and a forced component associated with the applied input.
 
-\todo{This is incomplete and needs more context.}
+In control theory, it is common to assume zero initial conditions when examining the input-output behavior of a system. Under this assumption, $x(0)=0$ and the complementary response is eliminated, leaving
+\begin{equation}
+	x(t) = x_\text{p}(t).
+\end{equation}
+This distinction is important: stability is determined by the system's homogeneous response and therefore by its pole, while the particular response describes how the system responds to the applied forcing function.
+
+
 
 
 
@@ -742,54 +807,79 @@ The timed resolved solution for the forced vibration problem is:
 x(t) &= x_\text{c}(t) + x_\text{p}(t)  \\
 & = e^{-\zeta \omega_\text{n} t } C \sin (\omega_d t + \phi) + x_\text{p}(t) \nonumber
 \end{align}
-\todo{I don't like the rest of this, why not just use the method of undetermined coefficients?} Putting equation~\ref{eq:x_solution} back into equation~\ref{eq:EOM_2nd_order_standard_form} results in the expression:
+Putting equation~\ref{eq:x_solution} back into equation~\ref{eq:EOM_2nd_order_standard_form} results in the expression:
 \begin{equation}
 (\ddot{x}_\text{c} + 2 \zeta \omega_\text{n} \dot{x}_\text{c} + \omega_\text{n}^2 x_\text{c}) + \ddot{x}_\text{p} + 2 \zeta \omega_\text{n} \dot{x}_\text{p} + \omega_\text{n}^2 x_\text{p} = \omega_\text{n}^2f(t)
 \end{equation}
 where we need to find $C, \; \phi, \; x_\text{p}(t)$ based on the initial conditions of the system. This is not an easy task. 
 
+\begin{mdframed}[middlelinewidth=0.5mm]
+	\begin{center}
+		\bl{NOTE}
+	\end{center}
+	The particular solution $x_\text{p}(t)$ depends on the form of the forcing function $f(t)$. For common forcing functions, $x_\text{p}(t)$ can be obtained using methods such as undetermined coefficients. The complementary solution describes the transient response, while the particular solution describes the forced response.
+\end{mdframed}
 
 
 %\includepdf[pages=-,pagecommand={},width=0.9\textwidth]{PDF_notes/2nd_order_systems_2.pdf}
 
-
 \subsection{Stability of 2nd order systems}
 
-Recall that the damped free vibration response:
+Recall that the damped free vibration response of a second-order system is given by
 \begin{equation}
-x_\text{c}(t) = C e^{-\zeta \omega_\text{n} t} \sin (\omega_\text{d} t + \phi)
+	x_\text{c}(t) =
+	C e^{-\zeta \omega_\text{n} t}
+	\sin\left(\omega_\text{d} t + \phi\right).
 \end{equation}
+The damping ratio $\zeta$ determines how the system's response changes with time. For a positive damping ratio, the exponential term causes the amplitude of the response to decay, while the sinusoidal term produces the oscillation.
+The resulting stability characteristics can therefore be understood by examining both the time response and the locations of the system poles, as illustrated in Figure~\ref{fig:stability-2nd-order}.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6.5in]{../figures/stability_2nd_order.png}
-	\caption{Stability of 2\textsuperscript{nd} order systems.}
+	\includegraphics[width=5.0in]{../figures/stability_2nd_order.png}
+	\caption{Stability of second-order systems for different damping conditions and pole locations.}
+	\label{fig:stability-2nd-order}
 \end{figure}
 
-Underdamped, critical-damped, overdamped 2\textsuperscript{nd} order systems and vibration response. 
-
-
+For a second-order system, the poles are determined by the damping ratio and the natural frequency. From the characteristic equation, the pole locations are
 \begin{equation}
-p_{1,2} = -\zeta \omega_\text{n} \pm i  \sqrt{1 - \zeta^2}
+	p_{1,2}
+	=
+	-\zeta \omega_\text{n}
+	\pm
+	i\omega_\text{n}\sqrt{1-\zeta^2}.
+\end{equation}
+The sign of the real part of the poles determines whether the vibration response decays or grows. When $\zeta>0$, the real part is negative and the response decays with time. When $\zeta=0$, the poles lie on the imaginary axis and the system exhibits sustained oscillations. When $\zeta<0$, the real part is positive and the response grows with time, resulting in an unstable system.
+
+The corresponding time responses for the three damping regimes are shown in Figure~\ref{fig:vibration-responses}. For $0<\zeta<1$, the system is underdamped and exhibits oscillations with a decaying amplitude. The damped natural frequency is 
+\begin{equation}
+	\omega_\text{d}
+	=
+	\omega_\text{n}\sqrt{1-\zeta^2}.
 \end{equation}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=6.5in]{../figures/vibration_responses.png}
-	\caption{vibration responses.}
-\end{figure}
-
+At $\zeta=1$, the system is critically damped and returns to equilibrium without oscillating. For $\zeta>1$, the system is overdamped and also returns to equilibrium without oscillating, but more slowly than the critically
+damped case.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6.5in]{../figures/2nd_order_poles}
-	\caption{2nd order poles.}
+	\includegraphics[width=5.0in]{../figures/vibration_responses.png}
+	\caption{Time responses of underdamped, critically damped, and overdamped second-order systems.}
+	\label{fig:vibration-responses}
 \end{figure}
 
+The relationship between pole location and time response is summarized in Figure~\ref{fig:2nd-order-poles}. Poles in the left half of the complex plane correspond to stable responses because their negative real parts produce exponential decay. Poles on the imaginary axis represent the limiting case of stability, producing sustained oscillations. Poles in the right half of the complex plane correspond to unstable responses because their positive real parts produce exponential growth.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.0in]{../figures/2nd_order_poles}
+	\caption{Relationship between second-order pole locations and corresponding time responses.}
+	\label{fig:2nd-order-poles}
+\end{figure}
+
+The pole locations therefore provide a direct way to evaluate the stability of a second-order system. A stable system has poles with negative real parts, while poles with positive real parts produce an unstable response.
 
 
-\begin{example}
-Do example on stability of 2\textsuperscript{nd} order systems
-\end{example}
 
 %
 %	\pagebreak
