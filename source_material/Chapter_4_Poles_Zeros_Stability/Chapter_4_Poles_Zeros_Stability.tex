@@ -1,0 +1,228 @@
+\documentclass[12pt,letter]{article}
+\usepackage{../downey_format}
+
+
+\begin{document}
+	
+	% set the section number, along with figure and equation numbers
+	\setcounter{section}{3}	
+	\setcounter{figure}{0}   
+	\renewcommand\thefigure{\thesection.\arabic{figure}}
+
+
+\section{Poles, Zeros, and Stability}
+
+
+\subsection{Dominant Poles}
+
+Given 
+\begin{equation}
+	X(s) = \frac{B(s)}{A(s)} = \frac{r_1}{s-p_1} + \frac{r_2}{s-p_2} + \cdots + \frac{r_k}{s-p_k} + \cdots
+\end{equation}
+where $p_k$ is either a complex number ($p_k \in \mathbb{C}$) and a conjugate pair
+\begin{equation}
+	p_k = \sigma_k \pm i\omega_k
+\end{equation}
+or a real number ($p_k \in \mathbb{R}$)
+\begin{equation}
+	p_k = \sigma_k
+\end{equation}
+
+Again, knowing that the inverse Laplace of $X(s)$ results in
+\begin{equation}
+	x(t) = r_1 e^{p_1t} + r_2 e^{p_2t} + \cdots + r_k e^{p_kt} + \cdots
+\end{equation}
+we can solve for the time series response. For controls, we are interested in the long term behavior of $x(t)$, i.e., to find $x_{ss} =  \lim\limits_{t\rightarrow \infty} [x(t)]$ which is the steady state response of the system. Note, that every term in the expansion will have the following form
+\begin{equation}
+	r_k e^{p_kt} = r_ke^{\sigma_k t} \cdot e^{i \omega_k t}
+\end{equation}
+where: 
+\begin{itemize}[noitemsep,topsep=0pt]
+	\item $r_ke^{\sigma_k t}$ is the exponential function
+	\item $e^{i \omega_k t}$ is the harmonic oscillation
+\end{itemize}
+we distinguish the following possible cases
+
+\subsubsection{Case A (Unstable):}
+
+If at least one $\sigma_k$ is positive, then $e^{\sigma_k t} \rightarrow \infty$, unstable system. 
+
+\subsubsection{Case B  (Stable):} 
+
+If system is stable, $\sigma_k<0$ (all poles on the left hand side) then:
+
+\noindent \textbf{Case B1 - Dominant Poles on the imaginary axis:}  If terms with $\sigma_k=0$ exist, than these will be maintain oscillations as the rest of the poles die out. This means the poles placed on the imaginary axis, if they exist, are dominant poles. 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../figures/dominant_poles_B1.png}
+	\caption{System with dominant poles on the imaginary axis.}
+\end{figure}
+
+\noindent \textbf{Case B2 - Dominant Poles to the left of the imaginary axis:} If terms with $\sigma_k=0$ do not exist, than the dominant poles are the poles closest to the imaginary axis because they take the longest to die out, having small $\sigma_k$ values (small damping). 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../figures/dominant_poles_B2.png}
+	\caption{System with dominant poles to the left of the imaginary axis.}
+\end{figure}
+
+
+	
+	\subsection{....}
+
+	The stability of a system is explained though ``poles'' and ``zeros''. The poles and the zeros of a system determine whether the system is stable, and how well the system performs.
+
+	\begin{enumerate}
+		\item A system at a pole has an output that is infinite even though the input to the system was finite (i.e. unstable). 
+		\item A system at a zero has an output that is finite even though the input to the system was infinite (i.e. stable).
+	\end{enumerate}
+ 
+
+
+
+
+
+
+
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=5.0in]{../figures/transfer_function_poles_and_zeros_and_3D_space.png}
+				\caption{Poles and zeros.}
+				\label{fig:transfer_function_poles_and_zeros_and_3D_space}
+			\end{figure}
+
+	Control systems can be designed simply by assigning specific values to the poles and zeros of the system. Physically realizable control systems must have a number of poles greater than the number of zeros. Systems that satisfy this relationship are called Proper. For a rational polynomial transfer function: The poles of a transfer function are defined as the roots of the denominator polynomial of the transfer function.  The zeros of a transfer function are simply the roots of the numerator polynomial. Visualizing of poles and zeros in the complex space can be helpful in understanding the stability of the system. Figure~\ref{fig:transfer_function_poles_and_zeros_and_3D_space} shows the complex space for an arbitrary transfer function $\sfrac{(s+2)(s-3)}{s^2+4s+20}$ where figure~\ref{fig:transfer_function_poles_and_zeros_and_3D_space}(a) shows the 3D space while figure~\ref{fig:transfer_function_poles_and_zeros_and_3D_space}(b) just reports the poles and zeros of the transfer function.  Figure~\ref{fig:transfer_function_3D_space_3_examples} reports the transfer functions for 3 additional transfer functions.  
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=6.5in]{../figures/transfer_function_3D_space_3_examples.png}
+				\caption{Poles and zeros in the complex space, plotted for 3 transfer functions.}
+				\label{fig:transfer_function_3D_space_3_examples}
+			\end{figure}
+
+
+
+
+\subsection{Stability of response}
+
+
+A system is stable if any stable input excitation produces a stable output response. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.5in]{../figures/stable_system_block_diagram}
+\end{figure}
+
+A response is stable if it remains bounded at $t \rightarrow \infty$
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.5in]{../figures/stable_responses}
+\end{figure}
+
+\subsubsection{Stability of 1\textsuperscript{st}-Order Responses}
+
+\begin{equation}
+	X(s) = \frac{K}{s-p}
+\end{equation}
+
+\begin{equation}
+	x(t) = K e ^{p t}
+\end{equation}
+where $p$ is the pole of $X(s)$. 
+
+The stability is dictated by the sign of $p$, i.e. its location in the complex $p$-plane. If $P<0$ (or $p$ is in the left-hand-side), the system is stable. Therefore, if a disturbing force is applied, the system will return to its initial state.  
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.5in]{../figures/system_stability_first_order}
+\end{figure}
+
+\subsubsection{Stability of 2\textsuperscript{nd}-Order Responses}
+
+\begin{equation}
+	X(s) = \frac{k(s-z_1)}{(s-p_1)(s-p_2)}
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.5in]{../figures/2nd_order_poles}
+\end{figure}
+
+%\includepdf[pages=-,pagecommand={},width=0.9\textwidth]{PDF_notes/Stability_of_response.pdf}
+
+
+\subsubsection{Stability of Higher-order Responses}
+
+Starting with a general expression for the output of a system
+\begin{equation}
+	X(s) = \frac{B(s)}{A(s)} = \frac{b_ms^m+b_{m-1}s^{m-1} + \cdots + b_0}{a_ns^n+a_{n-1}s^{n-1} + \cdots + a_0}
+\end{equation}
+partial fraction expansion results in
+\begin{equation}
+	X(s) = \frac{r_1}{s-p_1} + \frac{r_2}{s-p_2} + \cdots + \frac{r_n}{s-p_n}
+\end{equation}
+where $p_1, \; p_2, \; \cdots \; p_n$ are the poles of the system (i.e. roots of $A(s)=0$) and $r_1,\; r_2,\; \cdots \; r_n$ are the residues of the system. Note that the poles can either be real or complex. Again, MATLAB can be used to solve for the roots, poles, and gains of the system using \texttt{[r,p,k]=residue(B,A)}. The real poles can be
+\begin{itemize}
+	\item single pole: $\frac{r}{s-p} \xrightarrow{\Laplace{\; \; \;}^{-1}} re^{pt}$
+	\item double poles: $\frac{r}{(s-p)^2} \xrightarrow{\Laplace{\; \; \;}^{-1}} rte^{pt}$
+	\item multiple poles: $\frac{r}{(s-p)j} \xrightarrow{\Laplace{\; \; \;}^{-1}} \frac{1}{(j-1)!}t^{j-1}e^{pt}$
+\end{itemize} 
+where stable and unstable responses are
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.5in]{../figures/stability_higher_order_systems_real_poles}
+\end{figure}
+The complex poles are always in conjugate pairs, and are governed by $p_{1,2}=\sigma \pm i \omega$ where
+\begin{itemize}
+	\item first pole: $\frac{1}{s-p_1} = \frac{1}{s-(\sigma + i \omega)} \xrightarrow{\Laplace{\; \; \;}^{-1}} e^{(\sigma + i \omega)t} = e^{\sigma t} e^{i \omega t}$
+	\item second pole: $\frac{1}{s-p_2} = \frac{1}{s-(\sigma - i \omega)} \xrightarrow{\Laplace{\; \; \;}^{-1}} e^{(\sigma - i \omega)t} = e^{\sigma t} e^{-i \omega t}$
+\end{itemize} 
+Using Euler's formula, this results in
+\begin{equation}
+	x(t) = e^{\sigma t} (e^{i \omega t}-e^{-i \omega t}) = e^{\sigma t} \sin(\omega t) 
+\end{equation}
+where stable and unstable responses are
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.5in]{../figures/stability_higher_order_systems_complex_poles}
+\end{figure}
+
+\subsubsection{Absolute Stability}
+A necessary and sufficient condition for a system to be stable is that its poles are placed in the Left hand side of the complex plane. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=2.5in]{../figures/stable_system_complex_plane_simple}
+\end{figure}
+
+\subsubsection{Marginal Stability}
+If the poles are purely imaginary (i.e. placed on the imaginary axis) then the system as marginal stability. 
+\begin{itemize}
+	\item bounded impulse response, the system is stable
+	\item unbounded impulse response, or other inputs, the system is not stable. 
+\end{itemize}
+
+\subsubsection{Relative Stability}
+Would a stable system still be stable if its parameters are slightly changed? What margin of safety is there?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+

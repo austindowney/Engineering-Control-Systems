@@ -303,44 +303,6 @@ The ramp function represents an input that begins at zero and increases linearly
 
 
 	
-	
-	
-	
-	\subsection{Introduction to Stability}
-
-	The stability of a system is explained though ``poles'' and ``zeros''. The poles and the zeros of a system determine whether the system is stable, and how well the system performs.
-
-	\begin{enumerate}
-		\item A system at a pole has an output that is infinite even though the input to the system was finite (i.e. unstable). 
-		\item A system at a zero has an output that is finite even though the input to the system was infinite (i.e. stable).
-	\end{enumerate}
- 
-
-
-
-
-
-
-
-
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=5.0in]{../figures/transfer_function_poles_and_zeros_and_3D_space.png}
-				\caption{Poles and zeros.}
-				\label{fig:transfer_function_poles_and_zeros_and_3D_space}
-			\end{figure}
-
-	Control systems can be designed simply by assigning specific values to the poles and zeros of the system. Physically realizable control systems must have a number of poles greater than the number of zeros. Systems that satisfy this relationship are called Proper. For a rational polynomial transfer function: The poles of a transfer function are defined as the roots of the denominator polynomial of the transfer function.  The zeros of a transfer function are simply the roots of the numerator polynomial. Visualizing of poles and zeros in the complex space can be helpful in understanding the stability of the system. Figure~\ref{fig:transfer_function_poles_and_zeros_and_3D_space} shows the complex space for an arbitrary transfer function $\sfrac{(s+2)(s-3)}{s^2+4s+20}$ where figure~\ref{fig:transfer_function_poles_and_zeros_and_3D_space}(a) shows the 3D space while figure~\ref{fig:transfer_function_poles_and_zeros_and_3D_space}(b) just reports the poles and zeros of the transfer function.  Figure~\ref{fig:transfer_function_3D_space_3_examples} reports the transfer functions for 3 additional transfer functions.  
-
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=6.5in]{../figures/transfer_function_3D_space_3_examples.png}
-				\caption{Poles and zeros in the complex space, plotted for 3 transfer functions.}
-				\label{fig:transfer_function_3D_space_3_examples}
-			\end{figure}
-
-
-
 
 
 	\subsection{1\textsuperscript{st} Order Systems}	
